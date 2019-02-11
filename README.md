@@ -1,56 +1,41 @@
-# Web App From Scratch @cmda-minor-web 1819
+## Web App From Scratch
+By Guus Dijkhuis
 
-In dit vak gaan we een web app maken zonder frameworks of onnodige libraries, dus zoveel mogelijk met native HTML, CSS & JavaScript. Het eindproduct is een modulair opgezet prototype voor een single page web app. Data wordt opgehaald uit een externe API, waar nodig gemanipuleerd en vervolgens getoond in de Web App. Je leert hoe je structuur aanbrengt in je code en hoe je hiermee 'from scratch' een (prototype voor een) web app maakt. Met deze kennis begrijp je daarnaast beter hoe bestaande api’s, libraries en frameworks werken.
+[link to prototype](https://guusdijkhuis.github.io/web-app-from-scratch-18-19/week1)
 
-## Leerdoelen
-- _Je kan structuur aanbrengen in je code door patterns toe te passen. Je kan de keuze voor de gekozen patterns beargumenteren_
-- _Je kan data ophalen, manipuleren en dynamisch omzetten naar html elementen mbv templating._
-- _Je begrijpt hoe je middels asynchrone code met een externe API kan werken._
-- _Je begrijpt hoe je states in je applicaties kan managen en stelt de gebruiker op de hoogte van states waar nodig._
+### The assignment
+Make a application with HTML/CSS/JS and use data from an API. You need these data because we would build an overview page.
+For the right data we need a good API so I decide to use the PokéAPI. I choose for the PokéAPI because it is a small API with enough datapoints in the API but not too many datapoints. It was perfect for my project.
 
-[Rubric](https://docs.google.com/spreadsheets/d/e/2PACX-1vTjZGWGPC_RMvTMry8YW5XOM79GEIdgS7I5JlOe6OeeOUdmv7ok1s9jQhzojNE4AsyzgL-jJCbRj1LN/pubhtml?gid=0&single=true)
+### The concept
+I want to make an overview of all pokemons sort on number. When you will click on a image of a pokémon you get all the information of a single pokémon. This is my first idea so it can change in the future but this is the basis for my web app.
 
-## Lesprogramma
+### What I want
+So the use can looking through the list of Pokémons and see the details the user wants and not every Pokémon.
 
-### Week 1 - Hello API 🐒
+### What I did last week
+First of all I forgot my computer at the first day of the minor, so it was a good start... I decide to go to my house for my laptop so after 2 hours I finally started with my code and it was a nice experience. It was easier than I thought and I learned a lot about fetch and promises. Below a part of my code and the limit is 20 because it was too much loading time if I get all the data for every Pokémon.
 
-Doel: Data ophalen uit een API en renderen in een overzichtspagina.
+I use fetch for getting the names of all Pokémons with the url for the details:
+```
+fetch('https://pokeapi.co/api/v2/pokemon/?limit=20').then(response => {
+  return response.json();
+}).then(response => {
+  response.results.forEach(pokeNameData => {
+```
+When I get the response I use the url for fetching a second time because I want to get all the data of all Pokémons and not only the name. I want to use attack, abbilities, etc.   
+```
+  fetch(pokeNameData.url, {
+    method: 'get'
+  }).then(pokeAllData => {
+    return pokeAllData.json()
+  }).then(pokeAllData => {
+```
 
-[Opdrachten](https://drive.google.com/open?id=1OVhWQNaCgSluYviTKKWcApkyPd23xow1PiExb8GYANM)
+### Wishlist
 
-[Slides](https://drive.google.com/open?id=1Rjl9xqXoKniQSRJPdkU1O5YwWC33SJK8KiV0a-H_xZU)
-
-### Week 2 - Design and Refactor 🛠
-
-Doel: Breakdown maken van de web app. Routes en states toevoegen. Detailpagina renderen.
-
-[Opdrachten](https://drive.google.com/open?id=1GMDTdW3LycAYpZSFI6gk_lrKrx8-zLWrNh69aaVEH5Y)
-
-[Slides](https://drive.google.com/open?id=1IqQeu1m0dQiSC_KCvrn8eencAgtYe7X6qT-gm0n9Bmc)
-
-### Week 3 - Wrapping up 🎁
-
-Doel: Data manipuleren. Code splitsen in modules. Reflecteren op eindresultaat.
-
-[Opdrachten](https://drive.google.com/open?id=13pKQu72pshaEzKw9q5JHLa-aop85nMP6nDCdqioWjoQ)
-
-[Slides](https://drive.google.com/open?id=1BSzGYNLMgtHD4HRnK7f0DgyTv4Pg3xsQwD_eYNo7v0Y)
-
-
-<!-- Add a link to your live demo in Github Pages 🌐-->
-
-<!-- ☝️ replace this description with a description of your own work -->
-
-<!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
-
-<!-- Maybe a table of contents here? 📚 -->
-
-<!-- How about a section that describes how to install this project? 🤓 -->
-
-<!-- ...but how does one use this project? What are its features 🤔 -->
-
-<!-- What external data source is featured in your project and what are its properties 🌠 -->
-
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
-
-<!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
+- [x]  overview
+- [ ] search on name/number
+- [ ] get a random Pokémon
+- [ ] click on a type and get all Pokémons with the type
+- [ ] detail page
