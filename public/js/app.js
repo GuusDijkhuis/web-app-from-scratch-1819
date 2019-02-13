@@ -1,13 +1,12 @@
-import { getData } from './modules/getData.js';
+import { getAllData, getSingleData } from './modules/getData.js';
+// import { renderDetailsPokemon } from './modules/renderData.js'
 import './modules/route.js';
 
-getData();
-
 routie({
-    'users': function() {
-      console.log('hello');
-    },
-    'about': function() {
-      console.log('about');
-    }
+  '': function() {
+    getAllData();
+  },
+  ':name': function(res) {
+    getSingleData(res)
+  }
 });

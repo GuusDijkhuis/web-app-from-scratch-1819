@@ -1,8 +1,8 @@
 import { cleanData } from './cleanData.js'
-import { renderData } from './renderData.js'
+import { renderAllPokemon, renderDetailsPokemon } from './renderData.js'
 
-export function getData() {
-  return fetch('https://pokeapi.co/api/v2/pokemon/?limit=800')
+export function getAllData() {
+  return fetch('https://pokeapi.co/api/v2/pokemon/?limit=400')
   .then(res => {
     return res.json();
   })
@@ -26,11 +26,24 @@ export function getData() {
   })
   .then(res => {
     return res.map(pokemon => {
-      // console.log(pokemon);
+      localStorage.setItem(pokemon.name, pokemon)
       return cleanData(pokemon)
     })
   })
   .then(res => {
-    renderData(res)
+    renderAllPokemon(res)
+  })
+}
+
+export function getSingleData(name) {
+  fetch('https://pokeapi.co/api/v2/pokemon/' + name)
+  .then(res => {
+    return res.json();
+  })
+  .then(res => {
+    return cleanData(res)
+  })
+  .then(res => {
+    renderDetailsPokemon(res)
   })
 }
