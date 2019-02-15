@@ -8,6 +8,10 @@ export function cleanData(res) {
         sprites: {
           back_default: res.sprites.back_default,
           front_default: res.sprites.front_default
-        }
+        },
+        stats: res.stats.map(stats => {
+          return `<span class="pokemon-stats-name">${stats.stat.name}</span>
+          <span class="pokemon-stats-base-stat">${stats.base_stat}</span>`
+        }).join(' ')
     }
 }

@@ -109,6 +109,12 @@ a {
   width: 100%;
   display: block;
 }
+.pokemon-info .pokemon-version-names {
+  font-size: 1rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
 
 
 

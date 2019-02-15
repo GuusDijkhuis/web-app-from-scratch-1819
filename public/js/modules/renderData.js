@@ -16,7 +16,7 @@ export function renderAllPokemon(res) {
 
 export function renderDetailsPokemon(res) {
   let main = document.querySelector('main')
-
+  console.log(res);
   let pokemonDetail = `
   <div class="pokemon-details">
     <div class="img-slider">
@@ -24,9 +24,8 @@ export function renderDetailsPokemon(res) {
     </div>
     <div class="pokemon-info">
       <span class="pokemon-name">${res.name}</span>
-      <div class="pokemon-types">
-        <span class=""></span>
-      ${res.types}</div>
+      <div class="pokemon-types">${res.types}</div>
+      <div class="pokemon-stat-name">${res.stats}</div>
     </div>
   </div>`
 
