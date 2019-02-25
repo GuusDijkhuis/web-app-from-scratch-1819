@@ -1,8 +1,15 @@
 import { cleanData } from './cleanData.js'
-import { renderAllPokemon, renderDetailsPokemon } from './renderData.js'
+import { renderAllPokemon, renderDetailsPokemon, renderAllFromType } from './renderData.js'
 
-export function getAllData() {
-  return fetch('https://pokeapi.co/api/v2/pokemon/?limit=400')
+let startCount = 0
+let loadMoreButton = document.getElementById('load-more')
+
+let allPokemonArr = []
+
+export function getAllData(addCount = 0) {
+  let renderCount = startCount += addCount;
+
+  return fetch('https://pokeapi.co/api/v2/pokemon?offset=' + renderCount)
   .then(res => {
     return res.json();
   })
@@ -26,7 +33,7 @@ export function getAllData() {
   })
   .then(res => {
     return res.map(pokemon => {
-      localStorage.setItem(pokemon.name, pokemon)
+      allPokemonArr.push(cleanData(pokemon))
       return cleanData(pokemon)
     })
   })
@@ -47,3 +54,27 @@ export function getSingleData(name) {
     renderDetailsPokemon(res)
   })
 }
+
+export function getTeamData() {
+
+}
+
+export function getAllTypes(type) {
+  let arrByType = allPokemonArr.filter(filterByType);
+  function filterByType(res) {
+    if(res.typeNames.includes(type)) {
+      return res
+    }
+  }
+  renderAllFromType(arrByType)
+}
+
+
+
+
+
+function getMoreData() {
+  getAllData(20)
+}
+
+loadMoreButton.addEventListener('click', getMoreData, false);

@@ -1,4 +1,4 @@
-import { getAllData, getSingleData } from './modules/getData.js';
+import { getAllData, getSingleData, getAllTypes } from './modules/getData.js';
 // import { renderDetailsPokemon } from './modules/renderData.js'
 import './modules/route.js';
 
@@ -8,5 +8,8 @@ routie({
   },
   ':name': function(res) {
     getSingleData(res)
+  },
+  'type/:type': function(res) {
+    getAllTypes(res)
   }
 });

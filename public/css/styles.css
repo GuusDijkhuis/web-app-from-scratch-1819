@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: roboto;
 }
 main {
   padding: 3rem;
@@ -26,8 +27,8 @@ ul {
 }
 a {
   text-decoration: none;
-  flex: 1 0 20%;
 }
+
 .all-pokemons {
   list-style-type: none;
   margin: 1rem;
@@ -40,11 +41,13 @@ a {
   color: black;
   font-family: "Roboto";
   font-size: 1.2rem;
+  flex: 0 1 20%;
+  justify-content: space-between;
 }
 .all-pokemons:hover {
   transform: scale(1.1)
 }
-.all-pokemons > img {
+.all-pokemons img {
   display: block;
   width: 100%;
   image-rendering: pixelated;
@@ -52,11 +55,26 @@ a {
   border-radius: 10px;
   margin-bottom: .2rem;
 }
+.all-pokemons .add-to-team {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 3rem;
+  background: none;
+  transition: .5s;
+  opacity: 0;
+}
+.all-pokemons:hover .add-to-team {
+  opacity: 1;
+  transition: .5s;
+}
 
 .all-pokemons .pokemon-name {
   display: block;
   width: 100%;
   text-transform: capitalize;
+  text-decoration: none;
+  color: black;
   font-weight:bold;
   font-size: 1.2rem;
 }
@@ -69,7 +87,6 @@ a {
   padding: .3rem;
   text-transform: uppercase;
 }
-
 
 .pokemon-details {
   width: 70vw;
@@ -93,6 +110,7 @@ a {
 }
 .pokemon-details .img-slider img {
   width: 100%;
+  image-rendering: pixelated;
 }
 .pokemon-info {
   flex: 1;
@@ -109,12 +127,32 @@ a {
   width: 100%;
   display: block;
 }
-.pokemon-info .pokemon-version-names {
-  font-size: 1rem;
+
+.pokemon-all-stats {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  padding: 1rem 0;
+  display: block;
 }
+.pokemon-single-stat {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+.pokemon-stat-name {
+}
+.pokemon-stat-base-name {
+}
+
+.load-more {
+  width: auto;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  padding: 1rem .5rem;
+  color: white;
+  background-color: #FF6464;
+}
+
 
 
 
