@@ -1,15 +1,23 @@
 export function renderAllPokemon(res) {
+  let main = document.querySelector('main')
+
+  main.innerHTML = "";
+  main.innerHTML = "<ul></ul>"
+
   let ul = document.querySelector('ul')
-  res.forEach(pokemon => {
-      let pokemonDetails = `
-      <li class="all-pokemons">
-        <img class="add-to-team" id="${pokemon.name}" src="./public/img/add-to-team.svg"/>
-        <a href="#${pokemon.name}">
-          <img src="${pokemon.sprites.front_default}" alt="">
-          <span class="pokemon-name">${pokemon.name}</span>` +
-          pokemon.types +
-        `</a>
-      </li>`
+
+
+    res.forEach(pokemon => {
+        let pokemonDetails = `
+        <li class="all-pokemons">
+          <img class="add-to-team" id="${pokemon.name}" src="./public/img/add-to-team.svg"/>
+          <a href="#${pokemon.name}">
+            <img src="${pokemon.sprites.front_default}" alt="">
+            <span class="pokemon-name">${pokemon.name}</span>` +
+            pokemon.types +
+          `</a>
+        </li>`
+
       ul.insertAdjacentHTML('beforeend', pokemonDetails)
   })
   let pokemonAddArr = document.querySelectorAll('.add-to-team')
@@ -25,6 +33,8 @@ export function renderAllPokemon(res) {
 
 export function renderDetailsPokemon(res) {
   let main = document.querySelector('main')
+  main.innerHTML = "";
+
   let pokemonDetail = `
   <div class="pokemon-details">
     <div class="img-slider">
@@ -41,12 +51,14 @@ export function renderDetailsPokemon(res) {
 }
 
 export function renderAllFromType(res) {
+  let main = document.querySelector('main')
+
+  main.innerHTML = "";
+  main.innerHTML = "<ul></ul>";
+
   let ul = document.querySelector('ul')
 
-  ul.innerHTML = "";
-
   res.forEach(pokemon => {
-    console.log(pokemon);
       let pokemonDetails = `
       <li class="all-pokemons">
         <img class="add-to-team" id="${pokemon.name}" src="./public/img/add-to-team.svg"/>
@@ -58,6 +70,7 @@ export function renderAllFromType(res) {
       </li>`
       ul.insertAdjacentHTML('beforeend', pokemonDetails)
   })
+
   let pokemonAddArr = document.querySelectorAll('.add-to-team')
 
   let teamArr = []

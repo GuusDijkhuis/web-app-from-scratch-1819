@@ -6,10 +6,11 @@ let loadMoreButton = document.getElementById('load-more')
 
 let allPokemonArr = []
 
-export function getAllData(addCount = 0) {
+export function getAllData(addCount = 20) {
   let renderCount = startCount += addCount;
+  console.log(renderCount);
 
-  return fetch('https://pokeapi.co/api/v2/pokemon?offset=' + renderCount)
+  return fetch('https://pokeapi.co/api/v2/pokemon?limit=800')
   .then(res => {
     return res.json();
   })
@@ -33,11 +34,13 @@ export function getAllData(addCount = 0) {
   })
   .then(res => {
     return res.map(pokemon => {
+
       allPokemonArr.push(cleanData(pokemon))
       return cleanData(pokemon)
     })
   })
   .then(res => {
+    localStorage.setItem('allPokemon', JSON.stringify(res))
     renderAllPokemon(res)
   })
 }
