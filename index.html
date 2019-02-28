@@ -8,13 +8,19 @@
   <title>Pokemon API</title>
 </head>
 <body>
-  <header><a href="/"><img src="public/img/pokemon-logo.png" alt=""></a><span class="team-toggle">team</span></header>
+  <header><a href="/"><img src="public/img/pokemon-logo.png" alt=""></a></header>
   <div class="my-team">
-
+    <div class="team-toggle">Your team</div>
+    
   </div>
+  <div id="loader-div" class="hide-load">
+    <img src="public/img/pokebal-loading.gif"  alt="">
+    </div>
   <main>
+    <ul></ul>
+    <a class="load-more" id="load-more">Load more</a>
   </main>
-  <a class="load-more" id="load-more">Load more</a>
+
 
   <script type="module" src="public/js/app.js"></script>
 </body>

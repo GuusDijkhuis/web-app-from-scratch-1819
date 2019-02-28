@@ -1,16 +1,16 @@
 import { cleanData } from './cleanData.js'
-import { renderAllPokemon, renderDetailsPokemon, renderAllFromType } from './renderData.js'
+import { addLoadingState, removeLoadingState } from './states.js'
+import { renderAllPokemon, renderDetailsPokemon, renderAllFromType, renderTeam } from './renderData.js'
 
 let startCount = 0
 let loadMoreButton = document.getElementById('load-more')
 
 let allPokemonArr = []
 
-export function getAllData(addCount = 20) {
+export function getAllData(addCount = 0) {
   let renderCount = startCount += addCount;
-  console.log(renderCount);
 
-  return fetch('https://pokeapi.co/api/v2/pokemon?limit=800')
+  return fetch('https://pokeapi.co/api/v2/pokemon?offset=' + renderCount)
   .then(res => {
     return res.json();
   })
@@ -20,6 +20,7 @@ export function getAllData(addCount = 20) {
     })
   })
   .then(res => {
+    addLoadingState()
     return Promise.all(res.map(url => {
       let promise = new Promise((resolve, reject) => {
         fetch(url)
@@ -41,6 +42,7 @@ export function getAllData(addCount = 20) {
   })
   .then(res => {
     localStorage.setItem('allPokemon', JSON.stringify(res))
+    removeLoadingState()
     renderAllPokemon(res)
   })
 }
@@ -58,10 +60,6 @@ export function getSingleData(name) {
   })
 }
 
-export function getTeamData() {
-
-}
-
 export function getAllTypes(type) {
   let arrByType = allPokemonArr.filter(filterByType);
   function filterByType(res) {
@@ -72,8 +70,26 @@ export function getAllTypes(type) {
   renderAllFromType(arrByType)
 }
 
+export function getLocalTeamData() {
+
+  let teamArr = JSON.parse(localStorage.getItem('team'));
 
 
+  let a = teamArr.forEach(res => {
+    fetch('https://pokeapi.co/api/v2/pokemon/' + res)
+    .then(res => {
+      return res.json();
+    })
+    .then(res => {
+      return cleanData(res)
+    })
+    .then(res => {
+      console.log(res);
+      renderTeam(res)
+    })
+  })
+
+}
 
 
 function getMoreData() {
