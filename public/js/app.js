@@ -2,9 +2,7 @@ import { getAllData, getSingleData, getAllTypes, getLocalTeamData } from './modu
 
 import './modules/route.js';
 
-(function() {
-  getLocalTeamData();
-})()
+getLocalTeamData();
 
 routie({
   '': function() {

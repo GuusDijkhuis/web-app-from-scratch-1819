@@ -1,8 +1,11 @@
 ## Web App From Scratch
 By Guus Dijkhuis
 
-[link to prototype](https://guusdijkhuis.github.io/web-app-from-scratch-18-19/week1)
+[link to prototype](https://guusdijkhuis.github.io/web-app-from-scratch-18-19)
 
+### Installation
+If you want to checkout my project you can clone my repo with the following:
+`git clone https://github.com/GuusDijkhuis/web-app-from-scratch-1819.git`
 ### The assignment
 Make a application with HTML/CSS/JS and use data from an API. You need these data because we would build an overview page.
 For the right data we need a good API so I decide to use the PokéAPI. I choose for the PokéAPI because it is a small API with enough datapoints in the API but not too many datapoints. It was perfect for my project.
@@ -32,10 +35,20 @@ When I get the response I use the url for fetching a second time because I want 
   }).then(pokeAllData => {
 ```
 
+### Actor Diagram
+![Actor diagram](./public/img/actor-diagram.png)
+
+### Interaction Diagram
+![Interaction diagram](./public/img/interaction-diagram.png)
+
 ### Wishlist
 
-- [x]  overview
+- [x] overview of pokemons
+- [x] overview of types
+- [x] details of pokemons
+- [x] add pokemon to your team
+- [x] get all local data of your team
+- [x] store all data local
+- [ ] show all data from local
 - [ ] search on name/number
 - [ ] get a random Pokémon
-- [ ] click on a type and get all Pokémons with the type
-- [ ] detail page
