@@ -7,7 +7,7 @@ let loadMoreButton = document.getElementById('load-more')
 
 let allPokemonArr = []
 
-export function getAllData(addCount = 0) {
+export function getAllData(addCount = 20) {
   let renderCount = startCount += addCount;
 
   return fetch('https://pokeapi.co/api/v2/pokemon?offset=' + renderCount)
