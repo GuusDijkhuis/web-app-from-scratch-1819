@@ -35,7 +35,6 @@ export function getAllData(addCount = 0) {
   })
   .then(res => {
     return res.map(pokemon => {
-
       allPokemonArr.push(cleanData(pokemon))
       return cleanData(pokemon)
     })
@@ -73,21 +72,27 @@ export function getAllTypes(type) {
 export function getLocalTeamData() {
 
   let teamArr = JSON.parse(localStorage.getItem('team'));
+  // console.log(teamArr);
+
+  if(teamArr == null) {
+  } else {
+    teamArr.forEach(res => {
+      fetch('https://pokeapi.co/api/v2/pokemon/' + res)
+      .then(res => {
+        return res.json();
+      })
+      .then(res => {
+        return cleanData(res)
+      })
+      .then(res => {
+        console.log(res);
+        renderTeam(res)
+      })
+    })
+  }
 
 
-  let a = teamArr.forEach(res => {
-    fetch('https://pokeapi.co/api/v2/pokemon/' + res)
-    .then(res => {
-      return res.json();
-    })
-    .then(res => {
-      return cleanData(res)
-    })
-    .then(res => {
-      console.log(res);
-      renderTeam(res)
-    })
-  })
+
 
 }
 

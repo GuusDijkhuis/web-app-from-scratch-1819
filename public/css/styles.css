@@ -169,7 +169,6 @@ a {
 .show-load {
   display: block;
   position: absolute;
-  /* z-index: 10; */
   width: 100%;
   top: -10vh;
   height: 110vh;
@@ -187,12 +186,12 @@ a {
   height: 100vh;
   bottom: 0;
   top: 50%;
-  width: 10rem;
+  width: 9rem;
   padding: 2rem 1rem;
   transform: translate(0, -50%);
   z-index: 1000;
   background: #FF6464;
-  left: -9rem;
+  left: -8rem;
   transition: all 1s ease;
 }
 .team-toggle {
@@ -215,6 +214,7 @@ a {
   image-rendering: pixelated;
   background-color: #F2F2F2;
   border-radius: 5px;
+  width: 100%;
 }
 .my-team .pokemon-name {
   display: block;
@@ -234,7 +234,7 @@ a {
 
 @keyframes showTeamForOneSecond {
   0% {
-    left: -9rem;
+    left: -8rem;
   }
   20% {
     left: 0rem;
@@ -243,7 +243,7 @@ a {
     left: 0rem;
   }
   100% {
-    left: -9rem;
+    left: -8rem;
   }
 }
 

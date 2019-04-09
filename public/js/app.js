@@ -2,7 +2,6 @@ import { getAllData, getSingleData, getAllTypes, getLocalTeamData } from './modu
 
 import './modules/route.js';
 
-getLocalTeamData();
 
 routie({
   '': function() {
