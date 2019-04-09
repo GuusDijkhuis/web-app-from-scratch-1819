@@ -4,7 +4,7 @@ import './modules/route.js';
 
 
 routie({
-  '': function() {
+  '/': function() {
     getAllData();
   },
   ':name': function(res) {
