@@ -4,13 +4,13 @@ import './modules/route.js';
 
 
 routie({
-  '/': function() {
+  '': function() {
     getAllData();
   },
-  '/:name': function(res) {
+  ':name': function(res) {
     getSingleData(res);
   },
-  '/type/:type': function(res) {
+  'type/:type': function(res) {
     getAllTypes(res);
   }
 });
