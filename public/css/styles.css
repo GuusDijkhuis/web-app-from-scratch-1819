@@ -180,6 +180,7 @@ a {
 
 .my-team {
   position: fixed;
+  overflow-y: scroll;
   height: 100vh;
   bottom: 0;
   top: 50%;

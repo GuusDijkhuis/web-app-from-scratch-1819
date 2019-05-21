@@ -70,14 +70,11 @@ export function getAllTypes(type) {
 }
 
 export function getLocalTeamData() {
-
   let teamArr = JSON.parse(localStorage.getItem('team'));
-  // console.log(teamArr);
 
   if(teamArr == null) {
-  } else {
-    // teamArr[0].forEach(res => {
-    fetch('https://pokeapi.co/api/v2/pokemon/' + teamArr[0])
+  } else if (teamArr.length <= 6) {
+    fetch('https://pokeapi.co/api/v2/pokemon/' + teamArr[teamArr.length -1])
     .then(res => {
       return res.json();
     })
@@ -85,15 +82,9 @@ export function getLocalTeamData() {
       return cleanData(res)
     })
     .then(res => {
-      console.log(res);
       renderTeam(res)
     })
-    // })
   }
-
-
-
-
 }
 
 

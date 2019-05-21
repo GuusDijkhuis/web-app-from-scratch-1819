@@ -120,7 +120,6 @@ export function renderAllFromType(res) {
 export function renderTeam(res) {
   let teamMembers = document.querySelector('.my-team');
 
-
   let pokemonDetails = `
   <div class="my-team-members">
     <img src="${res.sprites.front_default}" alt="">
