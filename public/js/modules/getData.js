@@ -76,19 +76,19 @@ export function getLocalTeamData() {
 
   if(teamArr == null) {
   } else {
-    teamArr.forEach(res => {
-      fetch('https://pokeapi.co/api/v2/pokemon/' + res)
-      .then(res => {
-        return res.json();
-      })
-      .then(res => {
-        return cleanData(res)
-      })
-      .then(res => {
-        console.log(res);
-        renderTeam(res)
-      })
+    // teamArr[0].forEach(res => {
+    fetch('https://pokeapi.co/api/v2/pokemon/' + teamArr[0])
+    .then(res => {
+      return res.json();
     })
+    .then(res => {
+      return cleanData(res)
+    })
+    .then(res => {
+      console.log(res);
+      renderTeam(res)
+    })
+    // })
   }
 
 
