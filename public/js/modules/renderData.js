@@ -15,7 +15,7 @@ export function renderAllPokemon(res) {
     console.log(false)
   }
 
-  loadMoreBtn.style.display = 'none';
+  loadMoreBtn.style.display = 'block';
 
 
   res.forEach(pokemon => {
@@ -87,7 +87,7 @@ export function renderAllFromType(res) {
     ul.innerHTML = "";
   }
 
-  loadMoreBtn.style.display = 'none';
+  loadMoreBtn.style.display = 'block';
 
 
   res.forEach(pokemon => {
