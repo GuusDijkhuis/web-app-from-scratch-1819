@@ -1,7 +1,7 @@
 ## Web App From Scratch
 By Guus Dijkhuis
 
-[link to prototype](https://guusdijkhuis.github.io/web-app-from-scratch-18-19)
+[link to prototype](https://guusdijkhuis.github.io/web-app-from-scratch-1819/)
 
 ### Installation
 If you want to checkout my project you can clone my repo with the following:
